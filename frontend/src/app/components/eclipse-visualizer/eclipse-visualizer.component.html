@@ -1,0 +1,46 @@
+<div class="eclipse-visualizer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="map-container" #mapContainer></div>
+        <div class="location-info">
+          <p>Selected Location: {{ currentLocation.lat | number:'1.2-2' }}°N, {{ currentLocation.lng | number:'1.2-2' }}°E</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="simulation-container" #simulationContainer></div>
+        <div class="simulation-controls">
+          <div class="time-controls">
+            <input type="datetime-local" [(ngModel)]="simulationTime" (change)="setSimulationTime(simulationTime)">
+            <button class="btn btn-primary" (click)="toggleSimulation()">
+              {{ isSimulationRunning ? 'Pause' : 'Play' }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-4" *ngIf="eclipseData">
+      <div class="col-12">
+        <div class="eclipse-info">
+          <h3>Eclipse Information</h3>
+          <div class="phases">
+            <div class="phase" *ngIf="eclipseData.phases.first_contact">
+              <h4>First Contact</h4>
+              <p>{{ eclipseData.phases.first_contact | date:'medium' }}</p>
+            </div>
+            <div class="phase" *ngIf="eclipseData.phases.maximum">
+              <h4>Maximum Eclipse</h4>
+              <p>{{ eclipseData.phases.maximum.time | date:'medium' }}</p>
+              <p>Separation: {{ eclipseData.phases.maximum.separation | number:'1.2-2' }}°</p>
+            </div>
+            <div class="phase" *ngIf="eclipseData.phases.last_contact">
+              <h4>Last Contact</h4>
+              <p>{{ eclipseData.phases.last_contact | date:'medium' }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

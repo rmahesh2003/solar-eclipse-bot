@@ -1,0 +1,9 @@
+astropy==5.3.4
+skyfield==1.46
+numpy==1.26.0
+scipy==1.11.3
+flask==3.0.0
+flask-cors==4.0.0
+python-dotenv==1.0.0
+requests==2.31.0
+pytest==7.4.3 
