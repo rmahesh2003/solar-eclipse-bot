@@ -34,7 +34,7 @@
               <p>{{ eclipseData.phases.maximum.time | date:'medium' }}</p>
               <p>Separation: {{ eclipseData.phases.maximum.separation | number:'1.2-2' }}°</p>
             </div>
-            <div class="phase" *ngIf="eclipseData.phases.last_contact">
+            <div class="phases" *ngIf="eclipseData.phases.last_contact">
               <h4>Last Contact</h4>
               <p>{{ eclipseData.phases.last_contact | date:'medium' }}</p>
             </div>
